@@ -59,7 +59,6 @@ class Transaction {
     var nama = stdin.readLineSync(); // Membaca nama
     stdout.write('Judul buku: '); // Menanyakan judul
     var judul = stdin.readLineSync(); // Membaca judul
-    for (Student siswa in students) {}
     siswa = students.firstWhere((siswa) => (siswa.nama == nama),
         orElse: () =>
             null); // Mencari objek siswa yang sesuai dengan yang di input
