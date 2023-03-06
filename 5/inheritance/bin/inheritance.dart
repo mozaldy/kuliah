@@ -13,4 +13,13 @@ void main(List<String> arguments) {
 
   permenMerah.replace(5, 7);
   permenMerahStripped.replace(2, 4);
+
+  List<CandyBasic> candies = [];
+  candies.add(CandyBasic());
+  candies.add(CandyStriped());
+  candies.add(CandyStriped());
+
+  for (var i in candies){
+    print(i);
+  }
 }
