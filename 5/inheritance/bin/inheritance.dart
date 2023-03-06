@@ -1,22 +1,16 @@
-import 'package:inheritance/inheritance.dart' as inheritance;
-
-class CandyBasic {
-  String _warna;
-  int _point;
-
-  void replace(var koordinatAwal, var koordinatTujuan) {
-    // cek
-  }
-
-  set warna(String warna) => _warna = warna;
-
-  String get warna => _warna;
-  
-  set point(int point) => _point = point;
-
-  int get point => _point;
-}
+import 'candyBasic.dart';
+import 'candyStripped.dart';
 
 void main(List<String> arguments) {
-  
+  var permenMerah = CandyBasic();
+  permenMerah.warna = 'merah';
+  permenMerah.point = 10;
+
+  var permenMerahStripped = CandyStriped();
+  permenMerahStripped.warna = 'merah';
+  permenMerahStripped.point = 30;
+  permenMerahStripped.direction = 'horizontal';
+
+  permenMerah.replace(5, 7);
+  permenMerahStripped.replace(2, 4);
 }
