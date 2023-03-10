@@ -12,7 +12,7 @@ public class InsertionSort{
 
         System.out.println("Old Data: " + Arrays.toString(data));
 
-        int[] newdata = sort.insertionSortDesc(data);
+        int[] newdata = sort.insertionSortAsc(data);
 
         System.out.println("New Data: " + Arrays.toString(newdata));
 
@@ -23,19 +23,6 @@ public class InsertionSort{
             int j = i - 1;
             
             while (j >= 0 && data[j] > key){
-                data[j + 1] = data[j];
-                j = j - 1;
-            }
-            data[j + 1] = key;            
-        }
-        return data;
-    }
-    int[] insertionSortDesc(int[] data){
-        for (int i = 1; i < data.length; i++){
-            int key = data[i];
-            int j = i - 1;
-            
-            while (j >= 0 && data[j] < key){
                 data[j + 1] = data[j];
                 j = j - 1;
             }
