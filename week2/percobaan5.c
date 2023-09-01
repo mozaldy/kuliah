@@ -9,5 +9,5 @@ void main(){
     printf("Input c:\n");
     scanf(" %f", &c);
     hasil = (b * b) - (4 * a * c);
-    printf("%f\n", hasil);
+    printf("%.2f\n", hasil);
 }

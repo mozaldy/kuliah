@@ -10,6 +10,6 @@ void main(){
     printf("Program konversi mata uang USD ke IDR \n");
     printf("USD: ");
     scanf("%d", &usd);
-    idr = usd * 11000;
+    idr = usd * 15249;
     printf("IDR: %d\n", idr);
 }

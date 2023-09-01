@@ -12,7 +12,7 @@ void main()
     tunjangan_pasangan = gaji_pokok * 0.1;
     tunjangan_anak = gaji_pokok * 0.05 * jumlah_anak;
     thr = hari_bekerja / 365 * 5000;
-    pajak = gaji_pokok * 0.15 * -1;
+    pajak = (gaji_pokok + tunjangan_pasangan + tunjangan_anak) * 0.15 * -1;
     transport = hari_bekerja * 3000;
     asuransi = -20000;
     gaji = gaji_pokok + tunjangan_pasangan + tunjangan_anak + thr + pajak + transport + asuransi; 

@@ -1,9 +1,9 @@
 #include <stdio.h>
 
 void main(){
-    int celcius, fahrenheit;
+    float celcius, fahrenheit;
     printf("Input suhu dalam Celcius: ");
-    scanf("%d", &celcius);
+    scanf("%f", &celcius);
     fahrenheit = celcius * 1.8 + 32;
-    printf("Fahrenheit: %d\n", fahrenheit);
+    printf("Fahrenheit: %.2f\n", fahrenheit);
 }
