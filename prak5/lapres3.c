@@ -7,5 +7,6 @@ void main()
     scanf("%d", &bilangan);
 
     bilangan = (bilangan < 0) ? bilangan * -1 : bilangan;
+    
     printf("Output absolut: %d\n", bilangan);
 }
