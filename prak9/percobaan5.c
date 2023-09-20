@@ -1,17 +1,16 @@
 #include <stdio.h>
 
-void main()
+int main()
 {
-    float n;
-    scanf("%f", &n);
-    for (float i = 2; i < n; i++)
-    {
-        float a = n / i;
-        if (a % 2 == 0)
-        {
-            printf("bukan angka prima\n");
-            return;
-        }
+    int n, pembagi = 0;
+    printf("Angka: ");
+    scanf("%d", &n);
+
+    for (int i = 2; i < n / 2; i++){
+        if (n % i == 0)
+            pembagi++;
     }
-    printf("Angka prima\n");
+    if (n < 2)
+        pembagi++;
+    printf((pembagi == 0 ? "Angka prima\n" : "Bukan angka prima\n"));
 }

@@ -3,12 +3,9 @@
 void main()
 {
     int n, hasil;
-    printf("Angka ganjil dari 1 = ke n\nn: ");
+    printf("Angka dari 1 ke n, bilangan genap negatif, bilangan ganjil positif\nn: ");
     scanf("%d", &n);
     for (int i = 1; i <= n; i++)
-    {
-        hasil = (i % 2 == 0) ? (i * -1) : i;
-        printf("%d ", hasil);
-    }
+        printf("%d ", (i % 2 == 0) ? -i : i);
     printf("\n");
 }

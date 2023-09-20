@@ -2,6 +2,6 @@
 
 void main()
 {
-    for (int i = 90; i >= 65; i--)
-        printf("%c\n", i);
+    for (char c = 'Z'; c >= 'A'; c--)
+        printf("%c\n", c);
 }

@@ -10,8 +10,9 @@ int main(){
     printf("Percobaan 6\n");
     printf("Input angka: \n");
     scanf("%d", &angka);
+    fflush(stdin);
     printf("Input huruf: \n");
-    scanf(" %c", &huruf);
+    scanf("%c", &huruf);
     printf("Angka yang dimasukkan: %d \n", angka);
     printf("Huruf yang dimasukkan: %c \n", huruf);
     return 0;
