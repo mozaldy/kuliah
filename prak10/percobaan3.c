@@ -2,7 +2,7 @@
 
 void main()
 {
-    float n = 1, bilangan, total = 0, max = 0, min = 99999;
+    float n = 1, bilangan, total = 0, max = 0, min;
     char input;
     while(input != 't'){
         printf("Masukkan bilangan ke-%.0f : ", n);

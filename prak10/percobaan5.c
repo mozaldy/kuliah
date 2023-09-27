@@ -7,7 +7,7 @@ void main()
     while (c != '\n')
     {
         c = getchar();
-        if (c != '\n' && c != ' ')
+        if (c != '\n' && c != ' ')  
             count++;
         else if (c == ' ')
             count_spasi++;

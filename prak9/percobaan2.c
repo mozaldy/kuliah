@@ -3,7 +3,7 @@
 void main()
 {
     int n, hasil = 0;
-    printf("Angka ganjil dari 1 = ke n\nn: ");
+    printf("Bilangan triangular dari n ke 1\nn: ");
     scanf("%d", &n);
 
     for (; n != 0; n--)

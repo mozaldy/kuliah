@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 void main(){
-    float a, b, c;
+    float a, b, c, sisa;
     int waktu = 0;
 
     printf("Masukkan berapa bilangan awal: ");
@@ -10,11 +10,11 @@ void main(){
     scanf("%f", &b);
     printf("Berapa rata-rata kenaikan setiap tahun (%%): ");
     scanf("%f", &c);
-
-    while(a > 0){
-        a -= b;
+    sisa = a;
+    while(sisa > 0){
+        sisa -= b;
         waktu++;
-        a += (waktu % 12 == 0) ? 25000000 * (c / 100) : 0;
+        sisa += (waktu % 12 == 0) ? a * (c / 100) : 0;
     }
     printf("%d Bulan\n", waktu);
-}
+}   

@@ -2,15 +2,17 @@
 
 void main()
 {
-    int ips = 0, nilai_kali_jam = 0, total_jumlah_jam = 0;
+    float nilai_kali_jam = 0, total_jumlah_jam = 0;
+    float ips = 0;  
     for (int i = 0; i < 5; i++)
     {
         char nilai;
         int jumlah_jam, nilai_bilangan;
         printf("Nilai mata kuliah 1: ");
-        scanf("%c", &nilai);
-        fflush(stdin);
-
+        scanf(" %c", &nilai); //ILLEGAL
+        printf("Jam 2: ");
+        scanf("%d", &jumlah_jam);
+        
         switch (nilai)
         {
         case 'A':
@@ -33,12 +35,9 @@ void main()
             break;
         }
 
-        printf("Jam: ");
-        scanf("%d", &jumlah_jam);
-
         nilai_kali_jam += (nilai_bilangan * jumlah_jam);
         total_jumlah_jam += jumlah_jam;
     }
     ips = nilai_kali_jam / total_jumlah_jam;
-    printf("Index Prestasi Semester: %d\n", ips);
+    printf("Index Prestasi Semester: %.2f\n", ips);
 }
