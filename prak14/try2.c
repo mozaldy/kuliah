@@ -12,8 +12,6 @@ void main(){
 }
 long factorial(int n){
     int hasil = 1;
-    if (n < 0)
-        return 0;
     while (n > 0){
         hasil *= n;
         n--;

@@ -14,7 +14,7 @@ void main()
     printf("Tujuan: ");
     tujuan = getchar();
     hasil = konversi_suhu(input, asal, tujuan);
-    printf("Hasil konversi %g %c adalah %g %c\n", input, asal, hasil, tujuan);
+    printf("Hasil konversi %g %c adaah %g %c\n", input, asal, hasil, tujuan);
 }
 
 float konversi_suhu(float n, char asal, char tujuan)
