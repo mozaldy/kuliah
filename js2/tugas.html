@@ -29,8 +29,6 @@
         <input type="checkbox" id="subSaharanAfricaCheckbox" checked> Sub-Saharan Africa
     </label>
 
-    <!--[if lt IE 9]><script src="js/excanvas.min.js"></script><![endif]-->
-    <script src="https://cdn.jsdelivr.net/npm/flotr2@0.1.0/flotr2.min.js"></script>
     <script>
         var data = {
             "East Asia-Pacific": [
@@ -297,7 +295,6 @@
 
         var chartData = [];
 
-        // Function to update chart visibility based on checkboxes
         function updateChartVisibility() {
             chartData = [];
 
@@ -336,10 +333,8 @@
             );
         }
 
-        // Attach event listeners to the checkboxes using jQuery
         $("#eastAsiaCheckbox, #europeCheckbox, #latinAmericaCheckbox, #middleEastCheckbox, #southAsiaCheckbox, #subSaharanAfricaCheckbox").change(updateChartVisibility);
 
-        // Initial chart rendering
         updateChartVisibility();
 
     </script>
