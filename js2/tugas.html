@@ -4,10 +4,30 @@
 <head>
     <meta charset="utf-8">
     <title>GDP Comparison</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
 </head>
 
 <body>
     <div id="chart2" style="width:600px;height:400px;"></div>
+    <label>
+        <input type="checkbox" id="eastAsiaCheckbox" checked> East Asia-Pacific
+    </label>
+    <label>
+        <input type="checkbox" id="europeCheckbox" checked> Europe-Central Asia
+    </label>
+    <label>
+        <input type="checkbox" id="latinAmericaCheckbox" checked> Latin America-Caribbean
+    </label>
+    <label>
+        <input type="checkbox" id="middleEastCheckbox" checked> Middle East-North Africa
+    </label>
+    <label>
+        <input type="checkbox" id="southAsiaCheckbox" checked> South Asia
+    </label>
+    <label>
+        <input type="checkbox" id="subSaharanAfricaCheckbox" checked> Sub-Saharan Africa
+    </label>
 
     <!--[if lt IE 9]><script src="js/excanvas.min.js"></script><![endif]-->
     <script src="https://cdn.jsdelivr.net/npm/flotr2@0.1.0/flotr2.min.js"></script>
@@ -276,24 +296,51 @@
         };
 
         var chartData = [];
-        for (var country in data) {
-            chartData.push({ data: data[country], label: country, lines: { show: true }, shadowSize: 0 });
+
+        // Function to update chart visibility based on checkboxes
+        function updateChartVisibility() {
+            chartData = [];
+
+            if ($("#eastAsiaCheckbox").prop("checked")) {
+                chartData.push({ data: data["East Asia-Pacific"], label: "East Asia-Pacific", lines: { show: true }, shadowSize: 0 });
+            }
+            if ($("#europeCheckbox").prop("checked")) {
+                chartData.push({ data: data["Europe-Central Asia"], label: "Europe-Central Asia", lines: { show: true }, shadowSize: 0 });
+            }
+            if ($("#latinAmericaCheckbox").prop("checked")) {
+                chartData.push({ data: data["Latin America-Carribean"], label: "Latin America-Caribbean", lines: { show: true }, shadowSize: 0 });
+            }
+            if ($("#middleEastCheckbox").prop("checked")) {
+                chartData.push({ data: data["Middle East-North Africa"], label: "Middle East-North Africa", lines: { show: true }, shadowSize: 0 });
+            }
+            if ($("#southAsiaCheckbox").prop("checked")) {
+                chartData.push({ data: data["South Asia"], label: "South Asia", lines: { show: true }, shadowSize: 0 });
+            }
+            if ($("#subSaharanAfricaCheckbox").prop("checked")) {
+                chartData.push({ data: data["Sub-Saharan Africa"], label: "Sub-Saharan Africa", lines: { show: true }, shadowSize: 0 });
+            }
+
+            Flotr.draw(
+                document.getElementById("chart2"),
+                chartData,
+                {
+                    title: "GDP Comparison of the world by region",
+                    grid: { horizontalLines: false, verticalLines: false },
+                    yaxis: {
+                        min: 0,
+                        tickFormatter: function (val) {
+                            return val + "Bln (USD)";
+                        },
+                    },
+                }
+            );
         }
 
-        Flotr.draw(
-            document.getElementById("chart2"),
-            chartData,
-            {
-                title: "GDP Comparison of the world by region",
-                grid: { horizontalLines: false, verticalLines: false },
-                yaxis: {
-                    min: 0,
-                    tickFormatter: function (val) {
-                        return val + "Bln (USD)";
-                    },
-                },
-            }
-        );
+        // Attach event listeners to the checkboxes using jQuery
+        $("#eastAsiaCheckbox, #europeCheckbox, #latinAmericaCheckbox, #middleEastCheckbox, #southAsiaCheckbox, #subSaharanAfricaCheckbox").change(updateChartVisibility);
+
+        // Initial chart rendering
+        updateChartVisibility();
 
     </script>
 </body>
