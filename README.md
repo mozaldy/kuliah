@@ -16,7 +16,7 @@
    git branch
 4. Switch branch
    ```sh
-   git branch "{BRANCH NAME}"
+   git checkout "{BRANCH NAME}"
 5. Push changes to repository
    ```sh
    git add .
