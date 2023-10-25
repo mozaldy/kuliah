@@ -3,7 +3,9 @@ void fung_b(void);
 int x = 20;
 main()
 {
+    printf("%d\n", x);
     x += 2;
+    printf("%d\n", x);
     fung_a();
     fung_a();
     printf("\nNilai x dalam main() = %d\n\n", x);
