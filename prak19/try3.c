@@ -16,6 +16,8 @@ void main()
         data[i][1] = cos(radian(x[i]));
         data[i][2] = tan(radian(x[i]));
     }
+    printf("Derajat\tSin\tCos\tTan\n");
+    printf("-----------------------------\n");
     for (int i = 0; i < 13; i++)
     {
         printf("%d\t", x[i]);

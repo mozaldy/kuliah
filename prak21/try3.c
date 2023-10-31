@@ -17,7 +17,8 @@ void main(int argc, char const *argv[])
     rev(input);
     printf("Reverse string adalah: \n");
     printf("%s", input);
-    printf("%s \n", reversed);
+    printf("%s", reversed);
+    printf("\n");
 }
 
 int len(char s[])
