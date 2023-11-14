@@ -5,7 +5,6 @@
 int compare2(char s1[max], char s2[max]);
 int len(char s[]);
 
-
 void main()
 {
     char s1[max], s2[max];
@@ -16,12 +15,6 @@ void main()
     fgets(s2, sizeof(s2), stdin);
 
     printf(compare2(s1, s2) == 1 ? "Sama" : "Tidak sama");
-    if(compare2(s1, s2) == 1){
-        printf("sama");
-    }
-    else{
-        printf("tidak sama");
-    }
     printf("\n");
 }
 
@@ -37,11 +30,5 @@ int compare2(char s1[max], char s2[max])
         if(s2[i] >= 97)
             count2 -= 32;
     }
-    return ((count1 == count2) ? 1 : 0);
-}
-
-int len(char s[]){
-    int i;
-    for (i = 0; s[i] != '\0'; i++);
-    return i - 1;
+    return ((count1 == count2 && strlen(s1) == strlen(s2)) ? 1 : 0);
 }

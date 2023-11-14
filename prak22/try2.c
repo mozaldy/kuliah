@@ -26,7 +26,7 @@ int compare(char s1[max], char s2[max])
         count1 += s1[i];
         count2 += s2[i];
     }
-    return ((count1 == count2) ? 1 : 0);
+    return ((count1 == count2 && len(s1) == len(s2)) ? 1 : 0);
 }
 
 int len(char s[]){

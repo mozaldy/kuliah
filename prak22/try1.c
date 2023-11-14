@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-int rev(char s[]);
+int strrev(char s[]);
 
 char reversed[100];
 char copied[100];
@@ -15,13 +15,13 @@ void main(int argc, char const *argv[])
     fgets(input, sizeof(input), stdin);
     printf("Length: %lu\n", strlen(input));
 
-    rev(input);
+    strrev(input);
     printf("Reverse: %s \n", reversed);
     strcpy(copied, input);
     printf("Copy: %s \n", copied);
 }
 
-int rev(char s[])
+int strrev(char s[])
 {
     for (int i = strlen(s), rev_i = 0; i != 0; i--, rev_i++)
         reversed[rev_i] = s[i - 1];
