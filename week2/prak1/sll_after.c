@@ -14,7 +14,7 @@ typedef struct node {
 void alokasi();
 void insert_awal();
 void display();
-void insert_before();
+void insert_after();
 
 node *head = NULL, *p;
 
@@ -31,7 +31,7 @@ int main(int argc, char *argv[]) {
   }
 
   display();
-  insert_before();
+  insert_after();
   display();
 }
 
@@ -59,7 +59,7 @@ void insert_awal() {
   head = p;
 }
 
-void insert_before() {
+void insert_after() {
   int key;
 
   alokasi();

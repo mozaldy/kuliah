@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -65,18 +64,29 @@ void insert_before() {
 
   alokasi();
 
-  printf("Disisipkan setelah angka berapa? ");
+  printf("Disisipkan sebelum angka berapa? ");
   scanf("%d", &key);
 
-  node *before;
-  for (before = head; before->number != key; before = before->next) {
-    if (before->next == NULL) {
-      printf("Nilai %d tidak ada di dalam list!\n", key);
-      exit(0);
-    }
+  if (head->number == key) {
+    p->next = head;
+    head = p;
+    return;
   }
-  p->next = before->next;
-  before->next = p;
+
+  node *before, *prev_before;
+  for (before = head; before != NULL && before->number != key;
+       before = before->next) {
+    prev_before = before;
+  }
+
+  if (before == NULL) {
+    printf("Nilai %d tidak ada di dalam list!\n", key);
+    free(p);
+    return;
+  }
+
+  p->next = before;
+  prev_before->next = p;
 }
 
 void display() {
