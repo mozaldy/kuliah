@@ -42,7 +42,7 @@ $conn->close();
   <div class="container text-white mx-auto w-10/12">
     <div class="lg:flex lg:items-center mt-10 lg:justify-between">
       <div class="min-w-0 flex-1">
-        <h2 class="text-4xl  font-bold leading-7 ">Create Data kelas D4 IT A '23</h2>
+        <h2 class="text-4xl  font-bold leading-7 ">Update Data kelas D4 IT A '23</h2>
       </div>
       <div class="mt-5 flex lg:ml-4 lg:mt-0">
         <a href="index.php">
@@ -157,3 +157,45 @@ $conn->close();
 </body>
 
 </html>
+<?php
+if (isset($_POST['submit'])) {
+
+  include "conn.php";
+
+  $nrp = $_POST['nrp'];
+  $nama = $_POST['name'];
+  $kelamin = $_POST['kelamin'];
+  $jurusan = $_POST['jurusan'];
+  $email = $_POST['email'];
+  $alamat = $_POST['alamat'];
+  $nohp = $_POST['nohp'];
+  $asal_sma = $_POST['asal_sma'];
+  $tempat_lahir = $_POST['tempat_lahir'];
+  $tanggal_lahir = $_POST['tanggal_lahir'];
+
+  $sql = "UPDATE `mahasiswa` SET 
+        `nama` = '$nama', 
+        `jenis_kelamin` = '$kelamin', 
+        `jurusan` = '$jurusan', 
+        `email` = '$email', 
+        `alamat` = '$alamat', 
+        `nohp` = '$nohp', 
+        `asal_sma` = '$asal_sma', 
+        `tempat_lahir` = '$tempat_lahir', 
+        `tanggal_lahir` = '$tanggal_lahir', 
+        `nrp` = '31236000$nrp'
+        WHERE `nrp` = '31236000$nrp_short'";
+
+  if ($conn->query($sql) === TRUE) {
+    echo '<div class="mt-5 p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-700 dark:text-green-400" role="alert"><span class="font-medium">';
+    echo "New record updates successfully";
+    echo '</span></div>';
+  } else {
+    echo '<div class="mt-5 p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-700 dark:text-green-400" role="alert"><span class="font-medium">';
+    echo "Error updating record: " . $conn->error;
+    echo '</span></div>';
+  }
+
+  $conn->close();
+}
+?>

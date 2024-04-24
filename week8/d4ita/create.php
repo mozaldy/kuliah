@@ -135,9 +135,13 @@ if (isset($_POST['submit'])) {
   '31236000$nrp', '$nama', '$kelamin', '$jurusan', '$email', '$alamat', '$nohp', '$asal_sma', 'Matematika', '$tempat_lahir', '$tanggal_lahir')";
 
   if ($conn->query($sql) === TRUE) {
+    echo '<div class="mt-5 p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-700 dark:text-green-400" role="alert"><span class="font-medium">';
     echo "New record created successfully";
+    echo '</span></div>';
   } else {
+    echo '<div class="mt-5 p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-700 dark:text-green-400" role="alert"><span class="font-medium">';
     echo "Error: " . $sql . "<br>" . $conn->error;
+    echo '</span></div>';
   }
 
   $conn->close();

@@ -1,8 +1,8 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "d4ita";
+$servername = "databases.000webhost.com";
+$username = "id22080748_root";
+$password = "Mrz201004!";
+$dbname = "id22080748_d4ita";
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
   die("Koneksi Gagal: " . mysqli_connect_error());
