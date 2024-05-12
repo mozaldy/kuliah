@@ -1,21 +1,18 @@
 <?php session_start();
+include '../conn.php';
 if (
   isset($_POST["username"]) &&
   isset($_POST["password"])
 ) {
-  include '../conn.php';
   $username = $_POST["username"];
   $nrp = $_POST["nrp"];
   $password = $_POST["password"];
-  echo $username;
-  echo $nrp;
-  echo $password;
 
   $sql = "INSERT INTO `mahasiswa` (`nrp`, `username`, `password`) VALUES (
   '$nrp', '$username', '$password')";
   echo $sql;
 
-  if ($conn->query($sql) === TRUE) {
+  if (mysqli_query($conn, $sql) === TRUE) {
     header('Location: signin.php');
     exit;
   } else {

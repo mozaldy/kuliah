@@ -1,15 +1,14 @@
 <?php session_start();
+include '../conn.php';
 if (
   isset($_POST["username"]) &&
   isset($_POST["password"])
 ) {
-  include '../conn.php';
   $username = $_POST["username"];
   $password = $_POST["password"];
   $sql = "SELECT username FROM
 mahasiswa WHERE username = '$username' AND password ='$password'";
-  $result =
-    mysqli_query($conn, $sql);
+  $result = $conn->query($sql);
   if ($result->num_rows == 1) {
     $_SESSION["user_logged"] = true;
     $_SESSION["user_data"] = $result->fetch_assoc();
