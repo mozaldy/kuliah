@@ -20,33 +20,31 @@ typedef struct stack {
 
 tree *bentuk(typeInfo);
 void sisip(tree *, tree **);
+
 void push(stack *, tree *);
 tree *pop(stack *);
 bool isEmpty(stack *);
-void parseInfixExpression(const char *expression, tree **root);
 
-void main_input(tree **);
-void main_kunjungan(tree **);
-int menu_kunjungan();
+void parseInfixExpression(const char *expression, tree **root);
 
 void preorder(tree *);
 void postorder(tree *);
 void inorder(tree *);
-tree *cari(tree *, int);
+
 
 int main() {
-  tree *root = NULL;
-  char expression[100];
+  tree *root = NULL; // inisialisasi akar tree
+  char expression[100]; // inisialisasi ekspresi yang diinputkan user
 
   printf("Masukkan ekspresi aritmatika dalam notasi infix: ");
   fgets(expression, sizeof(expression), stdin);
 
-  size_t len = strlen(expression);
-  if (len > 0 && expression[len - 1] == '\n') {
+  size_t len = strlen(expression); // menggunakan length dari string untuk pembatasan iterasi
+ if (len > 0 && expression[len - 1] == '\n') { // memastikan bahwa end of string bukan newline
     expression[len - 1] = '\0';
   }
 
-  parseInfixExpression(expression, &root);
+  parseInfixExpression(expression, &root); // jalankan algoritma infix
 
   printf("\nPreorder traversal:\n");
   preorder(root);
@@ -57,60 +55,6 @@ int main() {
   printf("\n");
 
   return 0;
-}
-
-void main_input(tree **root) {
-  typeInfo info;
-  tree *t;
-  char input;
-  printf("Membentuk sebuah tree\n");
-  do {
-    printf("Ketikkan data/infonya: ");
-    info = getchar();
-    getchar();
-    t = bentuk(info);
-    sisip(t, root);
-    printf("Ada data lagi? (y/t): ");
-    input = getchar();
-    getchar();
-  } while (input == 'y' || input == 'Y');
-}
-
-void main_kunjungan(tree **root) {
-  char input;
-  do {
-    switch (menu_kunjungan()) {
-    case 1:
-      printf("Hasil penelusuran menggunakan preorder:\n");
-      preorder(*root);
-      break;
-    case 2:
-      printf("Hasil penelusuran menggunakan postorder:\n");
-      postorder(*root);
-      break;
-    case 3:
-      printf("Hasil penelusuran menggunakan inorder:\n");
-      inorder(*root);
-      break;
-    }
-    printf("\nMencoba metode lain? (y/t): ");
-    getchar();
-    input = getchar();
-    getchar();
-  } while (input == 'y' || input == 'Y');
-}
-
-int menu_kunjungan() {
-  int pilihan;
-  do {
-    printf("Pilih penelusuran tree\n");
-    printf("1. PreOrder\n");
-    printf("2. PostOrder\n");
-    printf("3. InOrder\n");
-    printf("Pilihan anda [1/2/3] : ");
-    scanf("%d", &pilihan);
-  } while (pilihan < 1 || pilihan > 3);
-  return pilihan;
 }
 
 tree *bentuk(typeInfo info) {
@@ -173,17 +117,6 @@ void inorder(tree *root) {
   }
 }
 
-tree *cari(tree *root, int dicari) {
-  if (root == NULL)
-    return NULL;
-  else if (dicari < root->info)
-    return cari(root->left, dicari);
-  else if (dicari > root->info)
-    return cari(root->right, dicari);
-  else
-    return root;
-}
-
 void push(stack *s, tree *node) {
   stackNode *newNode = (stackNode *)malloc(sizeof(stackNode));
   if (newNode == NULL) {
@@ -210,21 +143,21 @@ tree *pop(stack *s) {
 bool isEmpty(stack *s) { return s->top == NULL; }
 
 void parseInfixExpression(const char *expression, tree **root) {
-  stack stOperator = {NULL};
-  stack stOperan = {NULL};
+  stack stOperator = {NULL}; // inisialisasi stack operator
+  stack stOperan = {NULL}; // inisialisasi stack operan
 
-  int length = strlen(expression);
+  int length = strlen(expression); // sama kayak yang di main tapi newline pasti sudah di purge
   for (int i = 0; i < length; ++i) {
     char R = expression[i];
 
     if (R == '(') {
-      push(&stOperator, bentuk(R));
+      push(&stOperator, bentuk(R)); // kurung buka di push ke stack operator
     } else if ((R >= 'a' && R <= 'z') || (R >= 'A' && R <= 'Z') ||
                (R >= '0' && R <= '9')) {
-      push(&stOperan, bentuk(R));
+      push(&stOperan, bentuk(R)); // Alfabet & angka dipush ke stack operan
     } else if (R == '+' || R == '-' || R == '*' || R == '/') {
-      push(&stOperator, bentuk(R));
-    } else if (R == ')') {
+      push(&stOperator, bentuk(R)); // Simbol operasi perhitungan di push ke stack operator
+    } else if (R == ')') { // apabika char adalah kurung tutup, maka semua yang ada di stack di pop
       while (!isEmpty(&stOperator) && stOperator.top->node->info != '(') {
         tree *operatorNode = pop(&stOperator);
         operatorNode->right = pop(&stOperan);
