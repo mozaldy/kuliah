@@ -2,7 +2,7 @@ class Transaction {
   public SaleItem saleItems[];
 
   public Transaction() {
-    saleItems = new SaleItem[10];
+    saleItems = new SaleItem[100];
   }
 
   public void addSaleItem(SaleItem saleItem) {

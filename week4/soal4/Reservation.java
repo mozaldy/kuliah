@@ -10,6 +10,9 @@ class Reservation{
   }
 
   public void reserveSeat(){
-    seat.isAvailable = false;
+	if(seat.isAvailable)
+	    seat.isAvailable = false;
+	else
+	    System.out.println("Seat tidak available!");
   }
 }

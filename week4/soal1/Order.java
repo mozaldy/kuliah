@@ -2,7 +2,7 @@ class Order {
   public OrderItem orderItems[];
 
   public Order() {
-    orderItems = new OrderItem[10];
+    orderItems = new OrderItem[100];
   }
 
   public void addOrderItem(OrderItem saleItem) {
