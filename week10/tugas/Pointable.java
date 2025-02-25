@@ -1,0 +1,3 @@
+interface Pointable {
+  void laserPointer();
+}
