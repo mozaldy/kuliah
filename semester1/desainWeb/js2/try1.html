@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <h1 id="heading">Hello, World!</h1>
+    <h2>Saya ambil buff</h2>
+    <button id="button">Click saya</button>
+    <p>Button telah ditekan <span id="btn_count">0</span> kali.</p>
+</body>
+<script>
+    $(document).ready(() => {
+        var count = 0;
+        $("#button").click(() => {
+            if (count % 2 == 0) {
+                $("#heading").css("color", "blue");
+                $("h2").hide(1000);
+            }
+            else{
+                $("#heading").css("color", "red");
+                $("h2").show(1000);
+            }
+            count++;
+            $("#btn_count").text(count);
+        });
+    });
+</script>
+
+</html>
