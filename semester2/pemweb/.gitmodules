@@ -1,0 +1,3 @@
+[submodule "uas"]
+	path = uas
+	url = git@github.com:mozaldy/ethol-v2.git
