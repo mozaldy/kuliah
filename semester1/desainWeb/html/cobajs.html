@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello world!</title>
+    <link rel="stylesheet" href="style.css">
+    <button onclick="btnPress()">Pencet Aku!</button>
+  </head>
+  <body id="bg">
+    <h1 id="h1">Hello world!</h1>
+    <script>
+      var x = 1;
+      function btnPress() {
+        x += 1;
+        if (x % 2 == 0) {
+          document.getElementById("h1").style.color = "red";
+          document.getElementById("bg").style.backgroundColor = "white";
+        } else {
+          document.getElementById("h1").style.color = "white";
+          document.getElementById("bg").style.backgroundColor = "red";
+        }
+      }
+    </script>
+  </body>
+</html>
