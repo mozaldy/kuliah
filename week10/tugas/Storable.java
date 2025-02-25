@@ -1,3 +1,0 @@
-interface Storable {
-  void storageMedia();
-}
