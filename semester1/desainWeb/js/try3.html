@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Circle area (1)</h1>
+    <p>
+        <form>
+            radius (cm):
+            <input type="text" name="radius" size="6" maxlength="7" value="-99" onblur="area.value=getArea(parseFloat(radius.value));">
+            area (cm<sup>2</sup>):
+            <input type="text" name="area" size="6" maxlength="7"  value="-99">
+        </form>
+    </p>
+</body>
+<script>
+    function getArea(r){
+        return Math.PI * r * r;
+    }
+</script>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <style>
+            #panel, #flip{
+                padding: 5px;
+                text-align: center;
+                background-color: #e5eecc;
+                border: solid 1px tomato;
+            }
+            #panel{
+                padding: 50px;
+                display: none;
+            }
+        </style>
+</head>
+
+<body>
+    <div id="flip">
+        click to slide down panel
+    </div>
+    <div id="panel">
+        Poltek Elka Negeri Sby <br>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo odit nemo eos asperiores quis! Labore cupiditate deserunt deleniti quisquam placeat. <br>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo qui ipsum maxime voluptatem animi possimus illum laboriosam doloremque magni, id assumenda totam, rem asperiores, itaque eveniet autem dolores laborum minima?
+    </div>
+</body>
+<script>
+    $(document).ready(() => {
+        $("#flip").click(() => {
+            $("#panel").slideDown("slow");
+        });
+    });
+</script>
+
+</html>

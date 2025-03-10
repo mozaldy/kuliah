@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title>Hello, world! (v.3)</title>
+  </head>
+  <body bgcolor="lightgreen" text="magenta">
+    <h1 align="center">First JavaScript</h1>
+    <script language="javascript" type="text/javascript">
+      document.write(
+        "<font color='green'> This document was last modified on " +
+          document.lastModified +
+          "</font > "
+      );
+    </script>
+    <hr />
+    <script language="javascript" type="text/javascript">
+      document.write("background = " + document.bgColor);
+      document.write("<br />font = " + document.fgColor);
+      document.write(
+        "<font size='5'color = 'red'><center>Hello,world!</font><br />"
+      );
+      document.write(
+        "<font size='7' color='blue'> He said, & quot;It's a beautiful day!&quot;</center ></font > "
+      );
+    </script>
+  </body>
+</html>
